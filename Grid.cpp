@@ -8,15 +8,13 @@
 #include"Ant.h"
 #include<random>
 #include<cstdint>
-Grid::Grid(QWidget *parent)
-    : QWidget{parent}
-{
+using namespace std;
+const int step[8]={0,10,30,50,100,150,200,250};//代表的是步数的大小
+const int width[8]={0,10,10,15,20,25,30,35};//代表的是盘面的长
+// Grid::Grid(QWidget *parent)
+//     : QWidget{parent}
+// {
 
-
-    using namespace std;
-    using namespace std;
-    const int step[8]={0,10,30,50,100,150,200,250};//代表的是步数的大小
-    const int width[8]={0,10,10,15,20,25,30,35};//代表的是盘面的长
     void Grid::init(){
         // srand(static_cast<unsigned int>(time(0)));
         random_device rd;
@@ -139,11 +137,11 @@ Grid::Grid(QWidget *parent)
 
     }
     const string Origin_Grid::creat_ans_filename(){//根据难度level确定要写入的文件的名称
-        string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton's_Ant/backmode_PRO_level"+to_string(level)+".dat";
+        string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton/backmode_PRO_level"+to_string(level)+".dat";
         return filename;
     }
     const string Origin_Grid::creat_pro_filename(){
-        string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton's_Ant/backmode_ANS_level"+to_string(level)+".dat";
+        string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton/backmode_ANS_level"+to_string(level)+".dat";
         return filename;
     }
 
@@ -151,11 +149,11 @@ Grid::Grid(QWidget *parent)
 
     }
     const string Final_Grid::creat_pro_filename(){//根据难度level确定要写入的文件的名称
-        string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton's_Ant/straightmode_PRO_level"+to_string(level)+".dat";
+        string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton/straightmode_PRO_level"+to_string(level)+".dat";
         return filename;
     }
     const string Final_Grid::creat_ans_filename(){
-        string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton's_Ant/straightmode_ANS_level"+to_string(level)+".dat";
+        string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton/straightmode_ANS_level"+to_string(level)+".dat";
         return filename;
     }
 }
