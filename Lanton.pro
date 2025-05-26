@@ -21,9 +21,11 @@ INCLUDEPATH += .
 #DEFINES += QT_DISABLE_DEPRECATED_UP_TO=0x060000 # disables all APIs deprecated in Qt 6.0.0 and earlier
 
 # Input
-HEADERS += Ant.h Grid.h mainwindow.h
+HEADERS += Ant.h Grid.h mainwindow.h \
+    Game.h
 FORMS += mainwindow.ui
 SOURCES += Ant.cpp \
+           Game.cpp \
            Grid.cpp \
            main.cpp \
            mainwindow.cpp \

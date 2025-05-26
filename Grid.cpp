@@ -3,14 +3,15 @@
 #include<fstream>
 #include<iostream>
 #include<string>
-
+#include<QPainter>
 #include<vector>
 #include"Ant.h"
 #include<random>
 #include<cstdint>
+// #include<QWidget>
 using namespace std;
 const int step[8]={0,10,30,50,100,150,200,250};//代表的是步数的大小
-const int width[8]={0,10,10,15,20,25,30,35};//代表的是盘面的长
+const int Width[8]={0,10,10,15,20,25,30,35};//代表的是盘面的长
 // Grid::Grid(QWidget *parent)
 //     : QWidget{parent}
 // {
@@ -21,7 +22,7 @@ const int width[8]={0,10,10,15,20,25,30,35};//代表的是盘面的长
         mt19937_64 gen(rd());
         const uint64_t min=1;
         const uint64_t max=1ULL << 40;
-        int size=width[level];
+        int size=Width[level];
         grid.assign(size,vector<int>(size));//根据level的大小设计grid的长宽
         int count=0;//count代表初始化到了哪个格子:用count/size来计算x值，count%size来计算y值
         uniform_int_distribution<uint64_t>dist(min,max);
@@ -52,7 +53,7 @@ const int width[8]={0,10,10,15,20,25,30,35};//代表的是盘面的长
     void Grid::Auto_Generate() {//这个函数一定要通过基类指针或派生类调用
         init();//只初始化一个Origin_Grid对应的grid但是每次都会重新生成蚂蚁的初始位置从而构成不同的题面
         Grid pro(level);
-        int num=10;
+        int num=30;//每一个关卡的正推和反推模式都设计了30道题面
 
         while(num>0) {
             start_ant.random_position(grid.size());
@@ -133,6 +134,17 @@ const int width[8]={0,10,10,15,20,25,30,35};//代表的是盘面的长
     void Grid::set_level(const int&l){
         level=l;
     }
+    // void Grid::paintEvent(QPaintEvent*){
+    //     QPainter painter(this);
+    //     painter.setRenderHint(QPainter::Antialiasing, false);//关闭抗锯齿
+    //     const int tileSize=40;
+    //     const int boardWidth=grid[0].size()*tileSize;
+    //     const int boardHeight=grid[0].size()*tileSize;
+    //     const int offsetX=(width()-boardWidth)/2;//水平居中偏移量，width()是QWidget的成员函数，反映QWidget窗口的可见宽度
+    //     const int offsetY=(height()-boardHeight)/2;//竖直居中偏移量
+    //     for(int i=0;i<grid[0].size();i++)
+    //         for
+    // }
     Origin_Grid::Origin_Grid(int level):Grid(level) {
 
     }
@@ -156,4 +168,4 @@ const int width[8]={0,10,10,15,20,25,30,35};//代表的是盘面的长
         string filename="C:/Users/adven/CLionProjects/BuildingX/Lanton/straightmode_ANS_level"+to_string(level)+".dat";
         return filename;
     }
-}
+

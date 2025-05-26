@@ -10,7 +10,7 @@ class Ant
     friend class Grid;
     friend class Final_Grid;
 public:
-    Ant();
+
      // Ant(int x,int y,int h):x(x),y(y){Setheading(h);};不需要在创建对象时就初始化位置
         void Setheading(int);//既包括heading，也包括tailheading,即既包括头朝向，也包括尾朝向
         void findPos(vector<vector<int>>&);

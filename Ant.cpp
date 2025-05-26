@@ -5,7 +5,7 @@ using namespace std;
 #include<random>
 
 using namespace std;
-Ant::Ant() {//
+//
 // Created by adven on 25-5-12.
 //
 
@@ -174,4 +174,4 @@ Ant::Ant() {//
             }
         }
         return pro;
-    }}
+    }
