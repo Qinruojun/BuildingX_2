@@ -19,7 +19,7 @@ MainWindow::MainWindow(QWidget *parent)
             this, [this](int level) {
         // 创建题目列表界面
         auto problemList = new ProblemListWidget(level);
-        connect(problemList,&ProblemListWidget::problemSelected,this,[this]()
+
         // 连接返回信号
         //发送信号的对象，信号，信号的接收者
         connect(problemList, &ProblemListWidget::backToLevelSelection,
@@ -28,7 +28,12 @@ MainWindow::MainWindow(QWidget *parent)
             stackedWidget->removeWidget(stackedWidget->currentWidget());
         });
         stackedWidget->addWidget(problemList);
-        stackedWidget->setCurrentWidget(problemList);});
+        stackedWidget->setCurrentWidget(problemList);
+    connect(problemList,&ProblemListWidget::problemSelected,this,[problemList](int problemid){
+            auto problemWidget=new ProblemWidget(,string mode,problemid,problemList);
+
+});});//将当前页面切换到题目列表页面
+
 }
 
 
